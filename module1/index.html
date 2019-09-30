@@ -8,18 +8,38 @@
     <script src="app.js"></script>
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      input.ng-invalid {
+          background-color:pink;
+      }
+      input.ng-valid {
+          background-color:lightgreen;
+      }
+      input.ng-pristine {
+          background-color: lightblue;
+      }
     </style>
   </head>
 <body>
    <div class="container" ng-controller="LunchCheckController">
      <h1>Lunch Checker</h1>
 
-         <div class="form-group">
+
+
+         <form name="lunchForm">
+           <div class="form-group">
+
+
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
              class="form-control"
-             ng-model="items">
+             ng-model="items" name="items" required>
+
+         <span ng-show="lunchForm.items.$touched && lunchForm.items.$invalid ">Please Enter the items</span>
+         <!-- <div >
+           {{lunchForm.items.$invalid}}
+         </div> -->
          </div>
+
          <div class="form-group">
              <button class="btn btn-default" ng-click="check()">Check If Too Much</button>
          </div>
@@ -27,6 +47,8 @@
            <!-- Your message can go here. -->
            {{message}}
          </div>
+        </form>
+
    </div>
 
 </body>
