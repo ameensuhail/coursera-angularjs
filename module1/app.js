@@ -25,14 +25,26 @@
 
   function lunchController($scope,$filter){
     $scope.items="";
+
       $scope.check=function(){
-        var itemarray=$scope.items.split(",");
-        if(itemarray.length>=4){
-          $scope.message="Too much!";
+        if($scope.items==""){
+          $scope.message="Please enter data first";
+          //to set border color of text box and color of text
+          $scope.fontcolor="red";
+          $scope.bordercolor="redborder";
         }
         else{
-          $scope.message="Enjoy!";
-        }
+          var itemarray=$scope.items.split(",");
+          //to set border color of text box and color of text
+          $scope.fontcolor="green";
+          $scope.bordercolor="greenborder";
+          if(itemarray.length>=4){
+            $scope.message="Too much!";
+          }
+          else{
+            $scope.message="Enjoy!";
+          }
+      }
     }
 }
 

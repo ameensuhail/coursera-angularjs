@@ -8,15 +8,23 @@
     <script src="app.js"></script>
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
-      input.ng-invalid {
-          background-color:pink;
+      .red{color: red}
+      .green{color: green}
+      .redborder{border-color:red;}
+      .greenborder{border-color:green;}
+      .errormessage { font-size: 0.9em; font-weight: bold; }
+      /* input.ng-invalid {
+          border-color:pink;
+          border-width: medium;
       }
       input.ng-valid {
-          background-color:lightgreen;
+          border-color:lightgreen;
+          border-width: medium;
       }
       input.ng-pristine {
-          background-color: lightblue;
-      }
+          border-color: lightblue;
+          border-width: medium;
+      } */
     </style>
   </head>
 <body>
@@ -25,16 +33,16 @@
 
 
 
-         <form name="lunchForm">
+         <form name="lunchForm" novalidate>
            <div class="form-group">
 
 
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control"
+             class="form-control {{bordercolor}}"
              ng-model="items" name="items" required>
 
-         <span ng-show="lunchForm.items.$touched && lunchForm.items.$invalid ">Please Enter the items</span>
+         <!-- <div class="form-group errormessage" ng-show="lunchForm.items.$touched && lunchForm.items.$invalid " errormessage>Please Enter the items</div> -->
          <!-- <div >
            {{lunchForm.items.$invalid}}
          </div> -->
@@ -43,7 +51,7 @@
          <div class="form-group">
              <button class="btn btn-default" ng-click="check()">Check If Too Much</button>
          </div>
-         <div class="form-group message">
+         <div class="form-group message {{fontcolor}}">
            <!-- Your message can go here. -->
            {{message}}
          </div>
