@@ -1,0 +1,21 @@
+body {
+  font-size: 1.2em;
+}
+h1,h2{
+  color:black;
+}
+#list1, #list2 {
+  float: left;
+  color: blue;
+}
+#list2 {
+  margin-left: 40px;
+  color:green;
+}
+
+.error {
+  color: red;
+}
+.message{
+  color:red;
+}

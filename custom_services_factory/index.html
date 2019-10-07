@@ -31,7 +31,12 @@
          <button type="button" ng-click="list2.removeItem($index)">Remove Item</button>
 
        </ul>
-       {{list2.errormessage}}
+       <!-- <div class="error" ng-if="list2.errormessage">
+         Error: {{list2.errormessage}}
+       </div> -->
+       <div class="error" ng-show="list2.errormessage">
+          Error: {{list2.errormessage}}
+       </div>
      </div>
 
 
