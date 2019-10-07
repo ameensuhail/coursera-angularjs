@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app="ShoppingListApp">
+  <head>
+    <title>Example</title>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+<body>
+  <h1>Custom Services Through Factory</h1>
+  <!-- controller as syntax -->
+    <!-- List having unlimited items -->
+     <div id="list1" ng-controller="ShoppingListController1 as list1">
+       <h2>List #1</h2>
+       <input type="text" ng-model="list1.itemName" placeholder="Item Name">
+       <input type="text" ng-model="list1.itemQuantity" placeholder="Item Quantity">
+       <button type="button" name="itemadd" ng-click="list1.addItem()">Add Item to Shopping List</button>
+       <ul ng-repeat="item in list1.items">
+         {{item.quantity}} of {{item.name}}
+         <button type="button" ng-click="list1.removeItem($index)">Remove Item</button>
+       </ul>
+     </div>
+     <!-- List having items limited to 3 -->
+     <div id="list2" ng-controller="ShoppingListController2 as list2">
+       <h2>List #2</h2>
+       <input type="text" ng-model="list2.itemName" placeholder="Item Name">
+       <input type="text" ng-model="list2.itemQuantity" placeholder="Item Quantity">
+       <button type="button" name="itemadd" ng-click="list2.addItem()">Add Item to Shopping List</button>
+       <ul ng-repeat="item in list2.items">
+         {{item.quantity}} of {{item.name}}
+         <button type="button" ng-click="list2.removeItem($index)">Remove Item</button>
+
+       </ul>
+       {{list2.errormessage}}
+     </div>
+
+
+
+</body>
+</html>
